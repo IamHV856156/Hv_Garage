@@ -1,99 +1,127 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import {  GithubIcon, ExternalLink } from "lucide-react";
+import { GithubIcon, ExternalLink } from "lucide-react";
 import chip from "@/public/chip.svg";
 import Link from "next/link";
 import Image from "next/image";
 
 interface ProjectProps {
   title: string;
-  description: string;
-  tags: string[];
   link: string;
   github: string;
   color: string;
   iconName: string;
+  description:string;
+  // tags:string;
   iconSrc: string;
 }
 
+const ProjectCard = ({ title, github, link, color, iconName, iconSrc }: ProjectProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
 
-const ProjectCard = ({ title, description, tags, link, github, color,iconName, iconSrc }: ProjectProps) => {
+  // 1. Mouse coordinates for Tilt
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
+  // 2. Mouse coordinates for Shine (Raw values)
+  const mouseX = useMotionValue(-1000);
+  const mouseY = useMotionValue(-1000);
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
+  // 3. Smooth Springs - Increased damping (30) and lowered stiffness (100) for "Heavy" feel
+  const springConfig = { damping: 30, stiffness: 100, mass: 1 };
+  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], ["12deg", "-12deg"]), springConfig);
+  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], ["-12deg", "12deg"]), springConfig);
+
+  // 4. Dynamic Shine - Smooth but responsive
+  const shineWebkit = useTransform(
+    [mouseX, mouseY],
+    ([mX, mY]) => `radial-gradient(400px circle at ${mX}px ${mY}px, rgba(255,255,255,0.2), transparent 80%)`
+  );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
+    if (!containerRef.current) return;
+
+    const rect = containerRef.current.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
+    
+    // Relative position within the card
+    const currX = e.clientX - rect.left;
+    const currY = e.clientY - rect.top;
 
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
+    // Set Tilt (Normalized -0.5 to 0.5)
+    x.set(currX / width - 0.5);
+    y.set(currY / height - 0.5);
 
-    x.set(xPct);
-    y.set(yPct);
+    // Set Shine position
+    mouseX.set(currX);
+    mouseY.set(currY);
   };
 
   const handleMouseLeave = () => {
     x.set(0);
     y.set(0);
+    mouseX.set(-1000);
+    mouseY.set(-1000);
   };
 
   return (
-    <motion.div
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className={`group relative h-64 w-[400px] rounded-2xl border border-white/10 bg-gradient-to-br ${color} p-8 shadow-2xl transition-all duration-300 hover:border-white/20`}
-    >
-      {/* Visa Logo / Brand */}
-      <div className="flex justify-between items-start">
-        <Image src={chip} alt="chip" className="h-10 w-14 rounded-md  opacity-100 shadow-inner" />
-        <span className="text-xl font-black italic text-white/40 group-hover:text-white transition-colors uppercase">
-           <Image 
-            src={iconSrc} 
-            alt={iconName} 
-            width={40}
-            height={40}
-            className="object-cover rounded-full brightness-110"
-          />
-        </span>
-      </div>
+    <div className="w-full flex  justify-center py-10 px-4">
+      <motion.div
+        ref={containerRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{ 
+          rotateX, 
+          rotateY, 
+          transformStyle: "preserve-3d" 
+        }}
+        className={`group relative h-64 w-xl max-w-[400px] rounded-[2rem] border border-white/10 bg-gradient-to-br ${color} p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-colors duration-500 hover:border-white/30`}
+      >
+        <motion.div 
+          className="pointer-events-none absolute inset-0 z-0 rounded-[2rem]"
+          style={{ background: shineWebkit }}
+        />
 
-      <div className="mt-8">
-        <p className="font-mono text-2xl tracking-[0.2em] text-white/90">
-          {title.padEnd(16, " ").substring(0, 16)}
-        </p>
-      </div>
-
-      <div className="mt-4 flex justify-between items-end">
-        <div className="space-y-1">
-          <p className="text-[10px] uppercase tracking-widest text-white/40">Project Lead</p>
-          <p className="text-sm font-medium text-white/80 uppercase">Harshit Vashisht</p>
-          {/* <p className="text-sm font-medium text-white/80 uppercase">{description}</p>
-          <p className="text-sm font-medium text-white/80 uppercase">{tags}</p> */}
+        <div 
+          style={{ transform: "translateZ(80px)", transformStyle: "preserve-3d" }} 
+          className="flex justify-between items-start relative z-10"
+        >
+          <Image src={chip} alt="chip" className="h-10 w-14 rounded-md brightness-110 shadow-lg" />
+          <div className="rounded-full overflow-hidden border-2 border-white/20 shadow-2xl">
+             <Image src={iconSrc} alt={iconName} width={42} height={42} className="object-cover" />
+          </div>
         </div>
-        
-        <div className="flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <Link href={github} target="_blank" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-all">
-            <GithubIcon size={30} />
-          </Link>
-          <Link href={link} target="_blank" className="p-2 bg-[#FBC138] text-black rounded-full hover:scale-110 transition-all">
-            <ExternalLink size={30} />
-          </Link>
-        </div>
-      </div>
 
-      <div className="absolute inset-0 pointer-events-none rounded-2xl bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-    </motion.div>
+        <div style={{ transform: "translateZ(50px)" }} className="mt-10 relative z-10">
+          <p className="font-mono text-2xl font-black tracking-[0.2em] text-white drop-shadow-2xl">
+            {title.toUpperCase().padEnd(16, " ").substring(0, 16)}
+          </p>
+        </div>
+
+        <div 
+          style={{ transform: "translateZ(30px)" }} 
+          className="mt-6 flex justify-between items-end relative z-10"
+        >
+          <div className="space-y-1">
+            <p className="text-[10px] uppercase tracking-widest text-white/40">Project Lead</p>
+            <p className="text-sm font-bold text-white uppercase tracking-tighter">Harshit Vashisht</p>
+          </div>
+          
+          <div className="flex gap-3">
+            <Link href={github} target="_blank" className="p-2.5 bg-black/40 backdrop-blur-md border border-white/10 rounded-full hover:bg-white/20 transition-all">
+              <GithubIcon size={20} className="text-white" />
+            </Link>
+            <Link href={link} target="_blank" className="p-2.5 bg-[#FBC138] text-black rounded-full hover:scale-110 shadow-xl transition-all">
+              <ExternalLink size={20} />
+            </Link>
+          </div>
+        </div>
+
+        <div className="absolute inset-0 pointer-events-none rounded-[2rem] bg-gradient-to-tr from-white/5 via-transparent to-white/5 opacity-40" />
+      </motion.div>
+    </div>
   );
 };
 

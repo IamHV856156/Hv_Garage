@@ -96,8 +96,8 @@ const Navbar = () => {
         </div>
          <div className="hidden [@media(min-width:701px)]:flex flex-col uppercase tracking-[0.15rem] text-zinc-500 font-medium leading-none ">
             <span className="text-xs font-semibold text-[#FBC138] mb-1">{dateInfo.period}</span>
-            <span className="text-[10px] whitespace-nowrap">
-               {dateInfo.month} / {dateInfo.day}
+            <span className="text-[14px] whitespace-nowrap">
+               {dateInfo.month}  {dateInfo.day}
             </span>
           </div>
         </div>
