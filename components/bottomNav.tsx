@@ -11,7 +11,7 @@ const BottomNav = () => {
   ];
 
   return (
-    <div className="fixed bottom-8 left-1/2 z-[100] -translate-x-1/2">
+    <div className="fixed bottom-8 left-1/2 z-[] -translate-x-1/2">
       <motion.div 
         initial={{ y: 100 }}
         animate={{ y: 0 }}

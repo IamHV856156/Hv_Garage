@@ -2,6 +2,7 @@
 import React from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import {  GithubIcon, ExternalLink } from "lucide-react";
+import chip from "@/public/chip.svg";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -55,7 +56,7 @@ const ProjectCard = ({ title, description, tags, link, github, color,iconName, i
     >
       {/* Visa Logo / Brand */}
       <div className="flex justify-between items-start">
-        <div className="h-10 w-14 rounded-md bg-gradient-to-br from-yellow-400 to-yellow-600 opacity-80 shadow-inner" />
+        <Image src={chip} alt="chip" className="h-10 w-14 rounded-md  opacity-100 shadow-inner" />
         <span className="text-xl font-black italic text-white/40 group-hover:text-white transition-colors uppercase">
            <Image 
             src={iconSrc} 
