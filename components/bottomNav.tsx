@@ -15,13 +15,13 @@ const BottomNav = () => {
       <motion.div 
         initial={{ y: 100 }}
         animate={{ y: 0 }}
-        className="flex items-center gap-2 rounded-2xl border border-white/10 bg-zinc-900/50 p-2 backdrop-blur-2xl shadow-2xl"
+        className="flex items-center w-2xl justify-evenly gap-2 rounded-full border border-white/10 bg-zinc-900/50 p-2 backdrop-blur-2xl shadow-2xl"
       >
         {menuItems.map((item) => (
           <a
             key={item.label}
             href={item.href}
-            className="group relative flex h-12 w-12 items-center justify-center rounded-xl text-zinc-400 transition-all hover:bg-white/10 hover:text-white"
+            className="group relative flex h-12 w-20 items-center justify-center rounded-3xl text-zinc-400 transition-all hover:bg-white/10 hover:text-white"
           >
             {item.icon}
             <span className="absolute -top-10 scale-0 rounded bg-white px-2 py-1 text-[10px] font-bold text-black transition-all group-hover:scale-100">

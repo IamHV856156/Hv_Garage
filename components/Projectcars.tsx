@@ -2,8 +2,8 @@
 import React from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import {  GithubIcon, ExternalLink } from "lucide-react";
-// import Arduino1 from "@/public/Arduino1.svg";
 import Link from "next/link";
+import Image from "next/image";
 
 interface ProjectProps {
   title: string;
@@ -12,10 +12,12 @@ interface ProjectProps {
   link: string;
   github: string;
   color: string;
+  iconName: string;
+  iconSrc: string;
 }
 
 
-const ProjectCard = ({ title, description, tags, link, github, color }: ProjectProps) => {
+const ProjectCard = ({ title, description, tags, link, github, color,iconName, iconSrc }: ProjectProps) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -55,11 +57,16 @@ const ProjectCard = ({ title, description, tags, link, github, color }: ProjectP
       <div className="flex justify-between items-start">
         <div className="h-10 w-14 rounded-md bg-gradient-to-br from-yellow-400 to-yellow-600 opacity-80 shadow-inner" />
         <span className="text-xl font-black italic text-white/40 group-hover:text-white transition-colors uppercase">
-        {/* add project  logo here */}
+           <Image 
+            src={iconSrc} 
+            alt={iconName} 
+            width={40}
+            height={40}
+            className="object-cover rounded-full brightness-110"
+          />
         </span>
       </div>
 
-      {/* Project "Card Number" (The Title) */}
       <div className="mt-8">
         <p className="font-mono text-2xl tracking-[0.2em] text-white/90">
           {title.padEnd(16, " ").substring(0, 16)}
