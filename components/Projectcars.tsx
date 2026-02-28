@@ -1,7 +1,9 @@
 "use client";
 import React from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ExternalLink, Github, Link } from "lucide-react";
+import {  GithubIcon, ExternalLink } from "lucide-react";
+// import Arduino1 from "@/public/Arduino1.svg";
+import Link from "next/link";
 
 interface ProjectProps {
   title: string;
@@ -9,10 +11,11 @@ interface ProjectProps {
   tags: string[];
   link: string;
   github: string;
-  color?: string;
+  color: string;
 }
 
-const ProjectCard = ({ title, description, tags, link, github, color = "from-zinc-900 to-black" }: ProjectProps) => {
+
+const ProjectCard = ({ title, description, tags, link, github, color }: ProjectProps) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -50,10 +53,10 @@ const ProjectCard = ({ title, description, tags, link, github, color = "from-zin
     >
       {/* Visa Logo / Brand */}
       <div className="flex justify-between items-start">
-        <div className="h-10 w-14 rounded-md bg-gradient-to-br from-yellow-400 to-yellow-600 opacity-80 shadow-inner" /> {/* Chip */}
-        <h3 className="text-xl font-black italic text-white/40 group-hover:text-white transition-colors uppercase">
-          Project
-        </h3>
+        <div className="h-10 w-14 rounded-md bg-gradient-to-br from-yellow-400 to-yellow-600 opacity-80 shadow-inner" />
+        <span className="text-xl font-black italic text-white/40 group-hover:text-white transition-colors uppercase">
+        {/* add project  logo here */}
+        </span>
       </div>
 
       {/* Project "Card Number" (The Title) */}
@@ -63,19 +66,20 @@ const ProjectCard = ({ title, description, tags, link, github, color = "from-zin
         </p>
       </div>
 
-      {/* Card Details */}
       <div className="mt-4 flex justify-between items-end">
         <div className="space-y-1">
           <p className="text-[10px] uppercase tracking-widest text-white/40">Project Lead</p>
           <p className="text-sm font-medium text-white/80 uppercase">Harshit Vashisht</p>
+          {/* <p className="text-sm font-medium text-white/80 uppercase">{description}</p>
+          <p className="text-sm font-medium text-white/80 uppercase">{tags}</p> */}
         </div>
         
         <div className="flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
           <Link href={github} target="_blank" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-all">
-            <Github size={18} />
+            <GithubIcon size={30} />
           </Link>
           <Link href={link} target="_blank" className="p-2 bg-[#FBC138] text-black rounded-full hover:scale-110 transition-all">
-            <ExternalLink size={18} />
+            <ExternalLink size={30} />
           </Link>
         </div>
       </div>
