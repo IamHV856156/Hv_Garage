@@ -15,9 +15,10 @@ interface ProjectProps {
   description:string;
   // tags:string;
   iconSrc: string;
+  Role: string;
 }
 
-const ProjectCard = ({ title, github, link, color, iconName, iconSrc }: ProjectProps) => {
+const ProjectCard = ({ title, github, link, color, iconName, iconSrc,Role }: ProjectProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   // 1. Mouse coordinates for Tilt
@@ -77,13 +78,12 @@ const ProjectCard = ({ title, github, link, color, iconName, iconSrc }: ProjectP
           rotateY, 
           transformStyle: "preserve-3d" 
         }}
-        className={`group relative h-64 w-xl max-w-[400px] rounded-[2rem] border border-white/10 bg-gradient-to-br ${color} p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-colors duration-500 hover:border-white/30`}
+        className={`group relative h-64 w-xl m-1 p-5 max-w-[400px] rounded-[2rem] border border-white/10 bg-gradient-to-br ${color} p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-colors duration-500 hover:border-white/30`}
       >
         <motion.div 
           className="pointer-events-none absolute inset-0 z-0 rounded-[2rem]"
           style={{ background: shineWebkit }}
         />
-
         <div 
           style={{ transform: "translateZ(80px)", transformStyle: "preserve-3d" }} 
           className="flex justify-between items-start relative z-10"
@@ -105,7 +105,7 @@ const ProjectCard = ({ title, github, link, color, iconName, iconSrc }: ProjectP
           className="mt-6 flex justify-between items-end relative z-10"
         >
           <div className="space-y-1">
-            <p className="text-[10px] uppercase tracking-widest text-white/40">Project Lead</p>
+            <p className="text-[10px] uppercase tracking-widest text-white/90">{Role}</p>
             <p className="text-sm font-bold text-white uppercase tracking-tighter">Harshit Vashisht</p>
           </div>
           

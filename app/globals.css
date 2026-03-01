@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+::-webkit-scrollbar{
+  width: 0px;
+  background-color: transparent;
+}
 /* :root {
   --background: #ffffff;
   --foreground: #171717;
