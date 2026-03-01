@@ -4,6 +4,7 @@ import ProjectCard from "@/components/Projectcars";
 import BottomNav from "@/components/bottomNav";
 import LogoFOSS from "@/public/LogoFOSS.svg";
 import arduino1 from "@/public/Arduino1.svg";
+import MagicHeading from "@/components/magicHeading";
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
         <section id="projects" className="relative flex min-h-[calc(100vh-146px)] w-full flex-col items-center justify-center overflow-hidden bg-black text-white">
           <div className="items-center justify-center relative" >
             <span className=" font-black text-5xl sm:text-7xl lg:text-8xl text-white flex justify-center items-center hover:underline-offset-0 uppercase">
-              Projects
+              <MagicHeading text="Projects"/>
               </span>
             <div className="pt-20">
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-6 px-4 w-full max-w-7xl mx-auto items-center justify-items-center">
