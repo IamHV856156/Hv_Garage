@@ -52,7 +52,7 @@ const GlassCursorEffect = () => {
      className={`fixed pointer-events-none z-9999 transition-opacity duration-300 ${isVisible ? "opacity-100" : "opacity-0"}`}
    >
       <div className="w-8 h-8 rounded-full border border-white/30 backdrop-blur-[2px] flex items-center justify-center">
-        <div className="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.8)]" />
+        {/* <div className="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.8)]" /> */}
       </div>
 
       <motion.div

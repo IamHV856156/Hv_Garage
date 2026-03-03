@@ -45,7 +45,6 @@ const GlassCharacter = ({ char, mouseX, mouseY }: any) => {
           scale: isHovered ? 1.15 : 1,
           z: isHovered ? 50 : 0 
         }}
-        // transition={{ type: "spring", stiffness: 100, damping: 15 }}
         className="relative group"
       >
         <motion.span
