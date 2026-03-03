@@ -148,7 +148,7 @@ const Contact = () => {
 
           {/* spiderman */}
           
-          <div className="lg:col-span-5 flex flex-col justify-center space-y-8">
+          <div className="lg:col-span-5 flex flex-col justify-center border-t-2 border-mist-600/40 space-y-8">
           <motion.span
           >
             <Image src={babyspidy} alt="baby spidy" />
