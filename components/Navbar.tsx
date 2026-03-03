@@ -37,7 +37,7 @@ const Navbar = () => {
   if (!mounted) return null;
 
   return (
-    <nav className="flex w-full items-center justify-between p-4 sm:px-8 sm:py-6 bg-black sticky top-0 z-50">
+    <nav className="flex w-full items-center justify-between p-4 sm:px-8 sm:py-6 bg-black top-0 z-50">
       
       {/* LEFT SIDE: HELLO */}
       <div 
