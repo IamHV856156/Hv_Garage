@@ -35,11 +35,11 @@ function NavIcon({ item, mouseX }: { item: any; mouseX: any }) {
         {item.icon}
       </motion.div>
       
-      <span className="absolute -top-12 scale-0 rounded-xl bg-zinc-900/90 border border-white/10 px-3 py-1 text-[11px] font-medium text-white transition-all group-hover:scale-100 backdrop-blur-md shadow-2xl pointer-events-none">
+      <span className="absolute -bottom-2 scale-0 rounded-xl bg-zinc-900/30 border border-white/10 px-3 py-1 text-[11px] font-medium text-white transition-all group-hover:scale-100 backdrop-blur-md shadow-2xl pointer-events-none">
         {item.label}
       </span>
       
-      <div className="absolute -bottom-2 h-1 w-1 rounded-full bg-white opacity-0 group-hover:opacity-100 transition-opacity" />
+      {/* <div className="absolute -bottom-2 h-1 w-1 rounded-full bg-white opacity-0 group-hover:opacity-90 transition-opacity" /> */}
     </motion.a>
   );
 }
@@ -48,7 +48,7 @@ const BottomNav = () => {
   const mouseX = useMotionValue(Infinity);
 
   return (
-    <div className="fixed bottom-8 left-1/2 z-[100] -translate-x-1/2 min-w-2xs sm:min-w-xl lg:min-w-3xl px-4">
+    <div className="fixed bottom-8 left-1/2 z-100 -translate-x-1/2 min-w-2xs sm:min-w-xl lg:min-w-3xl px-4">
       <motion.div 
         onMouseMove={(e) => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}

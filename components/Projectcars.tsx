@@ -78,10 +78,10 @@ const ProjectCard = ({ title, github, link, color, iconName, iconSrc,Role }: Pro
           rotateY, 
           transformStyle: "preserve-3d" 
         }}
-        className={`group relative h-64 w-xl m-1 p-5 max-w-[400px] rounded-[2rem] border border-white/10 bg-gradient-to-br ${color} p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-colors duration-500 hover:border-white/30`}
+        className={`group relative h-64 w-xl m-1 p-5 max-w-100 rounded-4xl border border-white/10 bg-linear-to-br ${color} p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-colors duration-500 hover:border-white/30`}
       >
         <motion.div 
-          className="pointer-events-none absolute inset-0 z-0 rounded-[2rem]"
+          className="pointer-events-none absolute inset-0 z-0 rounded-4xl"
           style={{ background: shineWebkit }}
         />
         <div 
@@ -119,7 +119,7 @@ const ProjectCard = ({ title, github, link, color, iconName, iconSrc,Role }: Pro
           </div>
         </div>
 
-        <div className="absolute inset-0 pointer-events-none rounded-[2rem] bg-gradient-to-tr from-white/5 via-transparent to-white/5 opacity-40" />
+        <div className="absolute inset-0 pointer-events-none rounded-4xl bg-linear-to-tr from-white/5 via-transparent to-white/5 opacity-40" />
       </motion.div>
     </div>
   );

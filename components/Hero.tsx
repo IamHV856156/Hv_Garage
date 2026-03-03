@@ -69,7 +69,7 @@ const Hero = () => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => { setIsHovered(false); x.set(0); y.set(0); }}
         style={{ rotateX, rotateY, transformStyle: "preserve-3d",background: shineWebkit}}
-        className="relative flex flex-col items-center justify-center py-20 sm:px-25 px-10 text-white/90 rounded-[3rem] border border-white/5 bg-white/[0.03] backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.4)] transition-colors duration-500"
+        className="relative flex flex-col items-center justify-center py-20 sm:px-25 px-10 text-white/90 rounded-[3rem] border border-white/5 bg-white/3 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.4)] transition-colors duration-500"
       >
          <div className="flex flex-row text-4xl font-black uppercase  tracking-tighter sm:text-7xl lg:text-[10rem] leading-none text-orange-50/90">
            {firstNameData.map((item, idx) => (
