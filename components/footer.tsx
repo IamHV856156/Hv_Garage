@@ -8,8 +8,8 @@ const Footer = () => {
   return (
     <footer className="w-full bg-[#030303] pt-32 pb-12 px-6 relative overflow-hidden">
       {/* bg name */}
-      <div className="absolute  left-1/2 -translate-x-1/2 ">
-        <h1 className="text-[15vw] font-black text-white/10 leading-none uppercase">
+      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 ">
+        <h1 className="text-[15vw] font-black text-white/5 leading-none uppercase">
           Vashisht
         </h1>
       </div>
