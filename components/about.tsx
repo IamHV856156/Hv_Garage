@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Code2, Fingerprint, Globe2, Sparkles } from "lucide-react";
+import Terminal from "./Terminal";
 
 const About = () => {
   return (
@@ -55,32 +56,8 @@ const About = () => {
               </div>
             </GlassCard>
           </div>
-
           {/* THE TERMINAL SLOT*/}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="relative grow min-h-87.5 rounded-[2.5rem] bg-black/40 border border-white/10 backdrop-blur-3xl overflow-hidden group shadow-2xl"
-          >
-            <div className="absolute top-0 w-full h-10 bg-white/5 flex items-center px-6 border-b border-white/5 justify-between">
-              <div className="flex gap-2">
-                <div className="w-2.5 h-2.5 rounded-full bg-red-500/20" />
-                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/20" />
-                <div className="w-2.5 h-2.5 rounded-full bg-green-500/20" />
-              </div>
-              <span className="text-[11px] font-mono text-zinc-600 tracking-tighter uppercase">Hv^s_Garage</span>
-            </div>
-
-            <div className="absolute inset-0 flex flex-col items-center justify-center space-y-4 opacity-40 group-hover:opacity-60 transition-opacity">
-              <div className="p-4 rounded-full bg-blue-500/5 border border-blue-500/20">
-                <Code2 className="text-blue-500 animate-pulse" size={32} />
-              </div>
-              <p className="font-mono text-[15px] text-blue-400 tracking-[0.4em] uppercase">Initializing Terminal...</p>
-            </div>
-            
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-          </motion.div>
-
+            <Terminal/>
         </div>
       </div>
     </section>
