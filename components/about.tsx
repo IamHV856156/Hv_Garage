@@ -9,7 +9,7 @@ const About = () => {
         
         {/*LEFT COLUMN: IDENTITY (The "Profile" Glass) */}
         <div className="lg:col-span-4 space-y-6">
-          <GlassCard className="h-full flex flex-col justify-between p-10 border-blue-500/50">
+          <GlassCard className="h-full flex flex-col justify-between p-10 border hover:border-blue-500/30">
             <div>
               <Fingerprint className="text-blue-500 mb-6" size={40} />
               <h2 className="text-blue-500 font-sans tracking-[0.3em] text-[13px]  mb-2">// about me</h2>
@@ -35,7 +35,7 @@ const About = () => {
         <div className="lg:col-span-8 flex flex-col gap-8">
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <GlassCard className="p-8">
+            <GlassCard className="p-8 border hover:border-yellow-500/30">
               <Sparkles className="text-yellow-500/50 mb-4" size={24} />
               <h3 className="text-white font-bold text-xl mb-3 italic tracking-tight underline decoration-blue-500/50 underline-offset-4">Philosophy</h3>
               <p className="text-zinc-500 text-sm leading-relaxed">
@@ -43,12 +43,12 @@ const About = () => {
               </p>
             </GlassCard>
 
-            <GlassCard className="p-8">
+            <GlassCard className="p-8 border hover:border-emerald-500/30">
               <Code2 className="text-emerald-500/50 mb-4" size={24} />
               <h3 className="text-white font-bold text-xl mb-3 tracking-tight">Core Arsenal</h3>
               <div className="flex flex-wrap gap-2">
                 {['Html','JavaScript','React.js','TypeScript','C','C++','Tailwind','Framer Motion'].map((tech) => (
-                  <span key={tech} className="px-3 py-1 bg-white/5 rounded-md text-[15px] font-mono text-zinc-400 border border-white/5">
+                  <span key={tech} className="px-3 py-1 bg-white/5 rounded-md text-[15px] hover:bg-emerald-500/50 hover:text-zinc-50  font-mono text-zinc-400 border border-white/5 ">
                     {tech}
                   </span>
                 ))}
@@ -60,7 +60,7 @@ const About = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="relative flex-grow min-h-[350px] rounded-[2.5rem] bg-black/40 border border-white/10 backdrop-blur-3xl overflow-hidden group shadow-2xl"
+            className="relative grow min-h-87.5 rounded-[2.5rem] bg-black/40 border border-white/10 backdrop-blur-3xl overflow-hidden group shadow-2xl"
           >
             <div className="absolute top-0 w-full h-10 bg-white/5 flex items-center px-6 border-b border-white/5 justify-between">
               <div className="flex gap-2">
@@ -94,10 +94,10 @@ const GlassCard = ({ children, className = "" }: { children: React.ReactNode, cl
       whileInView={{ opacity: 1, scale: 1 }}
       whileHover={{ y: -5 }}
       transition={{ type: "spring", stiffness: 200, damping: 20 }}
-      className={`relative rounded-[2.5rem] border border-white/10 bg-white/[0.01] backdrop-blur-[50px] overflow-hidden ${className}`}
+      className={`relative rounded-[2.5rem] border border-white/10 bg-white/1 backdrop-blur-[50px] overflow-hidden ${className}`}
     >
       <div className="relative z-10">{children}</div>
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-[1] bg-linear-to-r from-transparent via-white/10 to-transparent" />
     </motion.div>
   );
 };
