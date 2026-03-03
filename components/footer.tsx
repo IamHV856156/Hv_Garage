@@ -25,11 +25,11 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="flex flex-col justify-end items-center md:items-end gap-8">
+          <div className="flex flex-col justify-end items-center md:items-end gap-8 [@media(min-width:701px)]:flex-col">
              <motion.button 
                onClick={scrollToTop}
                whileHover={{ y: -5 }}
-               className="text-white text-[10px] font-mono tracking-[0.3em] flex items-center border rounded-full border-zinc-200 animate-bounce hover:text-blue-400 hover:border-blue-400 cursor-none"
+               className="text-white text-[10px] font-mono tracking-[0.3em] sm:flex flex sm:items-center border rounded-full border-zinc-200 animate-bounce hover:text-blue-400 hover:border-blue-400 cursor-none"
              >
                <ArrowUp size={30}/>
              </motion.button>

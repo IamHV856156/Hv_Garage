@@ -47,7 +47,7 @@ const BottomNav = () => {
   const mouseX = useMotionValue(Infinity);
 
   return (
-    <div className="fixed bottom-10 left-1/2 z-100 -translate-x-1/2 min-w-2xs sm:min-w-xl lg:min-w-3xl px-4">
+    <div className="fixed bottom-10 left-1/2 z-100 -translate-x-1/2 min-w-2xs [@media(max-width:400px)]:hidden sm:min-w-xl lg:min-w-3xl px-4">
       <motion.div 
         onMouseMove={(e) => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}
