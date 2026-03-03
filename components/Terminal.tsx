@@ -111,7 +111,7 @@ const Terminal = () => {
             }}
             exit={{ opacity: 0, scale: 0.2, x: 100, y: 100, transition: { duration: 0.4 } }}
             className={`flex flex-col rounded-2xl overflow-hidden shadow-2xl border transition-all duration-500 ${
-              isDarkMode ? "bg-black/90 backdrop-blur-xl border-white/10" : "bg-white/95 backdrop-blur-xl border-black/10"
+              isDarkMode ? "bg-black/90 backdrop-blur-xl border-white/10" : "bg-zinc-200/30 backdrop-blur-xl border-black/10"
             }`}
           >
             {/* HEADER */}
@@ -143,8 +143,8 @@ const Terminal = () => {
                 <div 
                   key={i} 
                   className={`
-                    ${line.startsWith(">") ? "text-blue-500 font-bold" : isDarkMode ? "text-zinc-300" : "text-zinc-700"}
-                    ${line.includes("Returns") ? "text-blue-400" : ""}
+                    ${line.startsWith("") ? "text-emerald-500 font-bold" : isDarkMode ? "text-white" : "text-zinc-700"}
+                    ${line.includes("Returns") ? "text-red-400" : ""}
                   `}
                   style={{ whiteSpace: 'pre-wrap' }} // Crucial for ASCII alignment
                 >
@@ -155,7 +155,7 @@ const Terminal = () => {
                 <DollarSign size={14} className="italic text-blue-500" />
                 <input 
                   autoFocus 
-                  className={`flex-1 bg-transparent border-none outline-none ${isDarkMode ? "text-zinc-200" : "text-black"}`} 
+                  className={`flex-1 bg-transparent border-none outline-none ${isDarkMode ? "text-white" : "text-black"}`} 
                   value={input} 
                   onChange={(e) => setInput(e.target.value)} 
                   placeholder="type help..." 
