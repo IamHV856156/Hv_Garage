@@ -7,6 +7,7 @@ import arduino1 from "@/public/Arduino1.svg";
 import MagicHeading from "@/components/Effects/magicHeading";
 import About from "@/components/about";
 import Contact from "@/components/contact";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -72,6 +73,7 @@ export default function Home() {
               <Contact/>
             </div>
           </section>
+          <Footer/>
       </main>
     </div>
   );
