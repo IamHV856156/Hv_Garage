@@ -23,7 +23,7 @@ const magicHeading = ({ text }: { text: string }) => {
     >
       <div className="flex gap-x-1 sm:gap-x-3">
         {text.split("").map((char, i) => (
-          <GlassCharacter key={i} char={char === " " ? "\hello" : char} mouseX={mouseX} mouseY={mouseY} />
+          <GlassCharacter key={i} char={char === " " ? " " : char} mouseX={mouseX} mouseY={mouseY} />
         ))}
       </div>
     </div>
