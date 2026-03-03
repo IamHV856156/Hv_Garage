@@ -20,6 +20,11 @@ const GlassCursorEffect = () => {
       mouseY.set(e.clientY);
       if (!isVisible) setIsVisible(true);
     };
+    const handleMouseLeave = (e: MouseEvent) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+      if (isVisible) setIsVisible(false);
+    };
 
     const handleMouseDown = () => cursorScale.set(0.8);
     const handleMouseUp = () => cursorScale.set(1);
