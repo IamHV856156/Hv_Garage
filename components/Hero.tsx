@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence, m } from "framer-motion";
-import Magnetic from "./magneticEffect";
+import Magnetic from "./Effects/magneticEffect";
 
 const firstNameData = [
   { char: "H", color: "#ca8a04" }, 

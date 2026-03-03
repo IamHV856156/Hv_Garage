@@ -4,7 +4,7 @@ import ProjectCard from "@/components/Projectcars";
 import BottomNav from "@/components/bottomNav";
 import LogoFOSS from "@/public/LogoFOSS.svg";
 import arduino1 from "@/public/Arduino1.svg";
-import MagicHeading from "@/components/magicHeading";
+import MagicHeading from "@/components/Effects/magicHeading";
 
 export default function Home() {
   return (

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import GlassCursorEffect from "@/components/cursorEffect";
+import GlassCursorEffect from "@/components/Effects/cursorEffect";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
