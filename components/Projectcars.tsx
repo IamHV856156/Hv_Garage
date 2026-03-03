@@ -21,20 +21,16 @@ interface ProjectProps {
 const ProjectCard = ({ title, github, link, color, iconName, iconSrc,Role }: ProjectProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // 1. Mouse coordinates for Tilt
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  // 2. Mouse coordinates for Shine (Raw values)
   const mouseX = useMotionValue(-1000);
   const mouseY = useMotionValue(-1000);
 
-  // 3. Smooth Springs - Increased damping (30) and lowered stiffness (100) for "Heavy" feel
   const springConfig = { damping: 30, stiffness: 100, mass: 1 };
   const rotateX = useSpring(useTransform(y, [-0.5, 0.5], ["12deg", "-12deg"]), springConfig);
   const rotateY = useSpring(useTransform(x, [-0.5, 0.5], ["-12deg", "12deg"]), springConfig);
 
-  // 4. Dynamic Shine - Smooth but responsive
   const shineWebkit = useTransform(
     [mouseX, mouseY],
     ([mX, mY]) => `radial-gradient(400px circle at ${mX}px ${mY}px, rgba(255,255,255,0.2), transparent 80%)`
@@ -47,15 +43,12 @@ const ProjectCard = ({ title, github, link, color, iconName, iconSrc,Role }: Pro
     const width = rect.width;
     const height = rect.height;
     
-    // Relative position within the card
     const currX = e.clientX - rect.left;
     const currY = e.clientY - rect.top;
 
-    // Set Tilt (Normalized -0.5 to 0.5)
     x.set(currX / width - 0.5);
     y.set(currY / height - 0.5);
 
-    // Set Shine position
     mouseX.set(currX);
     mouseY.set(currY);
   };

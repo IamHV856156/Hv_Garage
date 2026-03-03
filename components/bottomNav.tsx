@@ -5,8 +5,8 @@ import { useRef, useState } from "react";
 
 const menuItems = [
   { icon: <Home size={20} />, label: "Home", href: "#" },
-  { icon: <Briefcase size={20} />, label: "Projects", href: "#projects" },
   { icon: <User size={20} />, label: "About", href: "#about" },
+  { icon: <Briefcase size={20} />, label: "Projects", href: "#projects" },
   { icon: <Mail size={20} />, label: "Contact", href: "#contact" },
 ];
 
@@ -29,13 +29,13 @@ function NavIcon({ item, mouseX }: { item: any; mouseX: any }) {
       ref={ref}
       href={item.href}
       whileTap={{ scale: 0.9 }} 
-      className="group relative flex h-12 w-12 items-center justify-center rounded-full text-zinc-400 transition-colors hover:text-white"
+      className="group relative flex h-12 w-12 items-center cursor-none justify-center rounded-full text-zinc-400 transition-colors hover:text-white"
     >
       <motion.div style={{ scale, y }} className="flex items-center justify-center">
         {item.icon}
       </motion.div>
       
-      <span className="absolute -bottom-2 scale-0 rounded-xl bg-zinc-900/30 border border-white/10 px-3 py-1 text-[11px] font-medium text-white transition-all group-hover:scale-100 backdrop-blur-md shadow-2xl pointer-events-none">
+      <span className="absolute -bottom-2 scale-0 rounded-xl bg-zinc-900/30 border border-white/10 px-3 py-1 text-[11px] font-medium text-white transition-all group-hover:scale-100 backdrop-blur-md shadow-2xl">
         {item.label}
       </span>
       

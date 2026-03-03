@@ -43,7 +43,7 @@ const Navbar = () => {
       <div 
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="flex cursor-pointer items-center gap-2"
+        className="flex items-center gap-2"
       >
         <motion.span 
           animate={isHovered ? { rotate: 12, scale: 1.1 } : { rotate: 0, scale: 1 }}
@@ -67,18 +67,18 @@ const Navbar = () => {
       <div className="flex items-center gap-6">
 
         <div className="flex items-center gap-4">
-          <button className="p-2 border border-white/10 rounded-full hover:bg-white/5 transition-all group">
+          <button className="p-2 border border-white/10 rounded-full hover:bg-white/5 transition-all group cursor-none">
             <Music size={24} className="text-gray-400 group-hover:text-[#FBC138] transition-colors" />
           </button>
 
-          <div className="flex gap-4 text-gray-400 border-none border-white sm:border-r pr-6 mr-2">
-            <Link href="https://github.com/IamHV856156" target="_blank" className="hover:text-white transition-all hover:-translate-y-1">
+          <div className="flex gap-4 text-gray-400 border-none border-white sm:border-r pr-6 mr-2 ">
+            <Link href="https://github.com/IamHV856156" target="_blank" className="hover:text-white transition-all hover:-translate-y-1 cursor-none">
               <Github size={24} />
             </Link>
-            <Link href="https://linkedin.com/in/harshit-vashisht" target="_blank" className="hover:text-white transition-all hover:-translate-y-1">
+            <Link href="https://linkedin.com/in/harshit-vashisht" target="_blank" className="hover:text-white transition-all hover:-translate-y-1 cursor-none">
               <Linkedin size={24} />
             </Link>
-            <Link href="https://instagram.com/vashisht7685" target="_blank" className="hover:text-white transition-all hover:-translate-y-1">
+            <Link href="https://instagram.com/vashisht7685" target="_blank" className="hover:text-white transition-all hover:-translate-y-1 cursor-none">
               <Instagram size={24} />
             </Link>
           </div>

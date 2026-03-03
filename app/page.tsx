@@ -13,6 +13,7 @@ export default function Home() {
         <Navbar/>
         <Hero/>
         <BottomNav/>
+        
         <section id="projects" className="relative flex min-h-[calc(100vh-146px)] w-full flex-col items-center justify-center overflow-hidden bg-black text-white">
           <div className="items-center justify-center relative" >
             <span className=" font-black text-5xl sm:text-7xl lg:text-8xl text-white flex justify-center items-center hover:underline-offset-0 uppercase">
