@@ -130,7 +130,7 @@ const Contact = () => {
           rotateY, 
           transformStyle: "preserve-3d" 
         }}
-        className={`group lg:col-span-5 flex flex-col justify-center space-y-8 relative m-1 p-5  rounded-4xl   duration-500 `}
+        className={`group lg:col-span-5 [@media(min-width:1021px)]:flex hidden flex-col justify-center space-y-8 relative m-1 p-5  rounded-4xl   duration-500 `}
       >
         <motion.div 
           className="pointer-events-none absolute inset-0 z-0 rounded-4xl"
@@ -159,7 +159,7 @@ const Contact = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6"
+          className="lg:col-span-7 grid  sm:grid-cols-2 gap-6"
         >
           <SocialCard 
             href="https://github.com/IamHV856156" 
