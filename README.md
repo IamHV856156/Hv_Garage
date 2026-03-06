@@ -1,4 +1,3 @@
-```markdown
 ![Hero Section Preview](./public/hero.png)
 
 # Hv_Garage // Harshit Vashisht
