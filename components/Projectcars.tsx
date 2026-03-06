@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { memo, useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { GithubIcon, ExternalLink } from "lucide-react";
 import chip from "@/public/chip.svg";
@@ -18,7 +18,7 @@ interface ProjectProps {
   Role: string;
 }
 
-const ProjectCard = ({ title, github, link, color, iconName, iconSrc,Role }: ProjectProps) => {
+const ProjectCard = memo(({ title, github, link, color, iconName, iconSrc,Role }: ProjectProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const x = useMotionValue(0);
@@ -116,6 +116,6 @@ const ProjectCard = ({ title, github, link, color, iconName, iconSrc,Role }: Pro
       </motion.div>
     </div>
   );
-};
+});
 
 export default ProjectCard;
