@@ -93,7 +93,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="relative w-full min-h-screen bg-[#030303] py-24 px-6 flex items-center justify-center overflow-hidden">
+    <section className="relative w-full min-h-screen py-24 px-6 flex items-center justify-center overflow-hidden">
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
         {/* LEFT */}
         <div className="lg:col-span-5 rounded-3xl flex flex-col justify-center border border-zinc-400/50 p-10 space-y-8 backdrop-blur-lg">

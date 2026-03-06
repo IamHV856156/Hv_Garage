@@ -5,7 +5,7 @@ import Terminal from "./Terminal";
 
 const About = () => {
   return (
-    <section className="relative w-full min-h-screen bg-[#020202] py-24 px-6 flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative w-full min-h-screen py-24 px-6 flex flex-col items-center justify-center overflow-hidden">
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         
         {/*LEFT COLUMN: IDENTITY (The "Profile" Glass) */}

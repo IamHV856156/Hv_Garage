@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ProjectCard from "@/components/Projectcars";
@@ -8,27 +10,33 @@ import MagicHeading from "@/components/Effects/magicHeading";
 import About from "@/components/about";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
+import GridBG from "@/components/Effects/background";
 
 export default function Home() {
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
   return (
-    <div className=" cursor-none flex items-center justify-center bg-zinc-50 font-sans dark:bg-white">
-      <main className="flex w-full flex-col items-center justify-between  bg-white dark:bg-white sm:items-start">
+    <div className="cursor-none relative min-h-screen w-full font-sans">
+      <GridBG/>
+      <main className="relative z-10 flex w-full flex-col items-center justify-between sm:items-start bg-transparent">
         <Navbar/>
         <Hero/>
         <BottomNav/>
-        <section id="about" className="relative flex min-h-[calc(100vh-146px)] w-full flex-col items-center justify-center overflow-hidden bg-black text-white">
+
+        <section id="about" className="relative flex min-h-[calc(100vh-146px)] w-full flex-col items-center justify-center overflow-hidden bg-transparent text-white">
           <div className="items-center justify-center relative" >
-            <span className=" font-black text-5xl sm:text-7xl lg:text-8xl text-white flex justify-center items-center hover:underline-offset-0 uppercase">
+            <span className="font-black text-5xl sm:text-7xl lg:text-8xl text-white flex justify-center items-center hover:underline-offset-0 uppercase">
               <MagicHeading text="About"/>
-              </span>
-              <About/>
-            </div>
-          </section>
-        <section id="projects" className="relative flex min-h-[calc(100vh-146px)] w-full flex-col items-center justify-center overflow-hidden bg-black text-white">
+            </span>
+            <About/>
+          </div>
+        </section>
+
+        <section id="projects" className="relative flex min-h-[calc(100vh-146px)] w-full flex-col items-center justify-center overflow-hidden bg-transparent text-white">
           <div className="items-center justify-center relative" >
-            <span className=" font-black text-5xl sm:text-7xl lg:text-8xl text-white flex justify-center items-center hover:underline-offset-0 uppercase">
+            <span className="font-black text-5xl sm:text-7xl lg:text-8xl text-white flex justify-center items-center hover:underline-offset-0 uppercase">
               <MagicHeading text="Projects"/>
-              </span>
+            </span>
             <div className="pt-20">
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-6 px-4 w-full max-w-7xl mx-auto items-center justify-items-center">
                   <ProjectCard
@@ -65,14 +73,16 @@ export default function Home() {
               </div>  
             </div>
           </section>
-          <section id="contact" className="relative flex min-h-[calc(100vh-146px)] w-full flex-col items-center justify-center overflow-hidden bg-black text-white">
+
+          <section id="contact" className="relative flex min-h-[calc(100vh-146px)] w-full flex-col items-center justify-center overflow-hidden bg-transparent text-white">
           <div className="items-center justify-center relative" >
-            <span className=" font-black text-5xl sm:text-7xl lg:text-8xl text-white flex justify-center items-center hover:underline-offset-0 uppercase">
+            <span className="font-black text-5xl sm:text-7xl lg:text-8xl text-white flex justify-center items-center hover:underline-offset-0 uppercase">
               {/* <MagicHeading text="Connect me"/> */}
-              </span>
-              <Contact/>
-            </div>
+            </span>
+            <Contact/>
+          </div>
           </section>
+          
           <Footer/>
       </main>
     </div>

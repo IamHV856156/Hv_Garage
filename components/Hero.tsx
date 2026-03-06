@@ -62,7 +62,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative flex min-h-screen pb-50 w-full items-center justify-center bg-black overflow-hidden perspective-1000 px-4">
+    <section className="relative flex min-h-screen pb-50 w-full items-center justify-center overflow-hidden perspective-1000 px-4">
       <motion.div
         ref={containerRef}
         onMouseMove={handleMouseMove}
