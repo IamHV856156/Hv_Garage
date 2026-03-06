@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { Github, Linkedin, Music, Instagram } from "lucide-react";
+import MusicModal from "./Effects/musicModal";
 
 const Navbar = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -67,9 +68,7 @@ const Navbar = () => {
       <div className="flex items-center gap-6">
 
         <div className="flex items-center gap-4">
-          <button className="p-2 border border-white/10 rounded-full hover:bg-white/5 transition-all group cursor-none">
-            <Music size={24} className="text-gray-400 group-hover:text-[#FBC138] transition-colors" />
-          </button>
+            <MusicModal/>
 
           <div className="flex gap-4 text-gray-400 border-none border-white sm:border-r pr-6 mr-2 ">
             <Link href="https://github.com/IamHV856156" target="_blank" className="hover:text-white transition-all hover:-translate-y-1 cursor-none">

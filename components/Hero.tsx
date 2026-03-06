@@ -1,7 +1,9 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect,useContext } from "react";
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence, m } from "framer-motion";
 import Magnetic from "./Effects/magneticEffect";
+import { MusicContext } from "./Effects/musicModal";
+import { MdTrackChanges } from "react-icons/md";
 
 const firstNameData = [
   { char: "H", color: "#ca8a04" }, 
@@ -25,6 +27,35 @@ const surName = [
   "וואשישט",       // Hebrew
   "ΒΑΣΙΣΤ",        // Greek
   ];
+
+
+  const TrackIndicator = () => {
+  const { currentTrack, setCurrentTrack } = useContext(MusicContext);
+
+  useEffect(() => {
+    if (currentTrack.message) {
+      const timer = setTimeout(() => {
+        setCurrentTrack({ message: "" });
+      }, 7000);
+      return () => clearTimeout(timer);
+    }
+  }, [currentTrack.message, setCurrentTrack]);
+
+  return (
+    <AnimatePresence>
+      {currentTrack.message && (
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -50 }}
+          className="fixed bottom-8 left-8 border border-white/10 bg-zinc-900/30 text-zinc-200 backdrop-blur-3xl px-6 py-3 rounded-2xl shadow-2xl font-bold z-100 flex items-center gap-2 pointer-events-none"
+        >
+          <MdTrackChanges/> {currentTrack.message}
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
 
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -112,8 +143,10 @@ const Hero = () => {
        </div>
        <div className="absolute inset-0 rounded-[3.5rem] border border-white/10 pointer-events-none" />
       </motion.div>
+      <TrackIndicator/>
     </section>
   );
 };
 
  export default Hero;
+ 
