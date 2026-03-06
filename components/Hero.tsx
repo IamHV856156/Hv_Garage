@@ -93,7 +93,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative flex min-h-screen pb-50 w-full items-center justify-center overflow-hidden perspective-1000 px-4">
+    <section className="relative flex min-h-screen pb-15 w-full items-center justify-center overflow-hidden perspective-1000 px-4">
       <motion.div
         ref={containerRef}
         onMouseMove={handleMouseMove}
@@ -123,7 +123,7 @@ const Hero = () => {
           </Magnetic>
          ))}
        </div>
-       <div className="text-4xl font-black uppercase tracking-tighter sm:text-6xl lg:text-[8rem] leading-[0.75] text-zinc-400/80 min-h-16 sm:min-h-32 flex items-center justify-center">
+       <div className="text-4xl w-full font-black uppercase tracking-tighter sm:text-6xl lg:text-[8rem] leading-[0.75] text-zinc-400/80 min-h-16 sm:min-h-32 flex items-center justify-center overflow-hidden">
           <Magnetic>
             <div className="relative flex items-center justify-center px-4">
               <AnimatePresence mode="wait">
@@ -133,7 +133,7 @@ const Hero = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="whitespace-nowrap inline-block will-change-transform"
+                  className="whitespace-nowrap inline-flex items-center justify-center will-change-transform"
                 >
                   {surName[langIndex]}
                 </motion.span>
