@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@keyframes grid-move {
+  0% { transform: rotateX(60deg) translateY(0); }
+  100% { transform: rotateX(60deg) translateY(60px); }
+}
+
+.animate-grid-move {
+  animation: grid-move 4s linear infinite;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background-color: transparent;
+}
+
+body {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
