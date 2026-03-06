@@ -69,7 +69,7 @@ const GlassCard = ({ children, className = "" }: { children: React.ReactNode, cl
     <motion.div
       initial={{ opacity: 0, scale: 0.98 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      // whileHover={{ y: -5 }}
+      whileHover={{ y: -5 }}
       transition={{ type: "spring", stiffness: 200, damping: 20 }}
       className={`relative rounded-[2.5rem] border border-white/10 bg-white/1 backdrop-blur-[50px] overflow-hidden ${className}`}
     >
