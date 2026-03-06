@@ -69,7 +69,7 @@ const Hero = () => {
 
    const shineWebkit = useTransform(
       [mX, mY],
-      ([pixelX, pixelY]) => `radial-gradient(400px circle at ${mX}px ${mY}px, rgba(255,255,255,0.2), transparent 80%)`
+      ([mX, mY]) => `radial-gradient(400px circle at ${mX}px ${mY}px, rgba(255,255,255,0.2), transparent 80%)`
     );
 
   const springConfig = { damping: 30, stiffness: 100, mass: 1 };
@@ -123,24 +123,24 @@ const Hero = () => {
           </Magnetic>
          ))}
        </div>
-       <div className="text-4xl font-black uppercase tracking-tighter sm:text-6xl lg:text-[8rem] leading-[0.75] text-zinc-400/80">
+       <div className="text-4xl font-black uppercase tracking-tighter sm:text-6xl lg:text-[8rem] leading-[0.75] text-zinc-400/80 min-h-[4rem] sm:min-h-[8rem] flex items-center justify-center">
           <Magnetic>
-           <div className="relative h-[1.2em] flex items-center justify-center px-4">
-             <AnimatePresence mode="wait">
-               <motion.span
-                 key={surName[langIndex]}
-                 initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
-                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                 exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
-                 transition={{ duration: 0.5, ease: "circOut" }}
-                 className="whitespace-nowrap inline-block"
-               >
-                 {surName[langIndex]}
-               </motion.span>
-             </AnimatePresence>
-           </div>
+            <div className="relative flex items-center justify-center px-4">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={surName[langIndex]}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="whitespace-nowrap inline-block will-change-transform"
+                >
+                  {surName[langIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </div>
           </Magnetic>
-       </div>
+        </div>
        <div className="absolute inset-0 rounded-[3.5rem] border border-white/10 pointer-events-none" />
       </motion.div>
       <TrackIndicator/>
