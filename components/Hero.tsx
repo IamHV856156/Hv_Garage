@@ -123,7 +123,7 @@ const Hero = () => {
           </Magnetic>
          ))}
        </div>
-       <div className="text-4xl font-black uppercase tracking-tighter sm:text-6xl lg:text-[8rem] leading-[0.75] text-zinc-400/80 min-h-[4rem] sm:min-h-[8rem] flex items-center justify-center">
+       <div className="text-4xl font-black uppercase tracking-tighter sm:text-6xl lg:text-[8rem] leading-[0.75] text-zinc-400/80 min-h-16 sm:min-h-32 flex items-center justify-center">
           <Magnetic>
             <div className="relative flex items-center justify-center px-4">
               <AnimatePresence mode="wait">
