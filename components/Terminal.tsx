@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Terminal as TerminalIcon, Cpu, ChevronRight, Sun, Moon, Maximize2, Minimize2, X, DollarSign } from "lucide-react";
+import { Terminal as TerminalIcon, Sun, Moon, Maximize2, Minimize2, X, DollarSign } from "lucide-react";
 
 const FEDORA_NEOFETCH = `
            /####\\            hv@fedora
@@ -111,11 +111,11 @@ const Terminal = () => {
             }}
             exit={{ opacity: 0, scale: 0.2, x: 100, y: 100, transition: { duration: 0.4 } }}
             className={`flex flex-col rounded-2xl overflow-hidden shadow-2xl border transition-all duration-500 ${
-              isDarkMode ? "bg-black/90 backdrop-blur-xl border-white/10" : "bg-zinc-200/30 backdrop-blur-xl border-black/10"
+              isDarkMode ? "bg-black/90 backdrop-blur-xl border-white/10" : "bg-mauve-300 backdrop-blur-xl border-black/10"
             }`}
           >
             {/* HEADER */}
-            <div className={`px-4 py-3 border-b flex items-center justify-between ${isDarkMode ? "bg-white/5 border-white/5" : "bg-black/5 border-black/5"}`}>
+            <div className={`px-4 py-3 border-b flex items-center justify-between ${isDarkMode ? "bg-white/5 border-white/5" : "bg-black/10 border-black/10"}`}>
               <div className="flex items-center gap-3">
                 <div className="flex gap-2">
                   <button onClick={() => setIsClosed(true)} className="group size-3 rounded-full bg-[#FF605C] flex items-center justify-center">
@@ -128,8 +128,8 @@ const Terminal = () => {
                     <Maximize2 size={8} className="opacity-0 group-hover:opacity-100 text-black/50" />
                   </button>
                 </div>
-                <span className={`text-[10px] font-mono uppercase tracking-widest ${isDarkMode ? "text-zinc-500" : "text-zinc-400"}`}>
-                   {isMaximized ? "Floating Root" : "Local Terminal"}
+                <span className={`text-[10px] font-mono tracking-widest ${isDarkMode ? "text-emerald-400/40" : "text-black/50"}`}>
+                   {isMaximized ? "Sudo_Hv@fedora" : "Sudo_Hv@fedora"}
                 </span>
               </div>
               <button onClick={() => setIsDarkMode(!isDarkMode)} className="text-zinc-500 hover:text-blue-500 transition-colors">
@@ -143,8 +143,8 @@ const Terminal = () => {
                 <div 
                   key={i} 
                   className={`
-                    ${line.startsWith("") ? "text-emerald-500 font-bold" : isDarkMode ? "text-white" : "text-zinc-700"}
-                    ${line.includes("Returns") ? "text-red-400" : ""}
+                    ${line.startsWith("") ? "text-zinc-500 font-bold" : isDarkMode ? "text-white" : "text-black"}
+                    ${line.includes("Returns") ? "text-zinc-600" : ""}
                   `}
                   style={{ whiteSpace: 'pre-wrap' }} // Crucial for ASCII alignment
                 >
