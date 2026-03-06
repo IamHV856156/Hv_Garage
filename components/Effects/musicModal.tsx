@@ -60,7 +60,7 @@ export default function MusicModal() {
       
       <button 
         onClick={togglePlayback}
-        className="p-2 border border-white/10 rounded-full hover:bg-white/5 transition-all cursor-pointer group"
+        className="p-2 border border-white/10 rounded-full hover:bg-white/5 transition-all group"
       >
         <Music size={24} className={`transition-colors ${isPlaying ? 'text-[#FBC138]' : 'text-gray-400 group-hover:text-[#FBC138]'}`} />
       </button>
@@ -85,14 +85,14 @@ export default function MusicModal() {
                 <button 
                   key={item.label} 
                   onClick={() => playTrack(item.url,item.message)}
-                  className={`w-12 h-12 flex items-center justify-center border border-zinc-200 rounded-full group-hover:bg-zinc-800 group-hover:backdrop-blur-3xl  transition-colors font-medium`}
+                  className={`w-12 h-12 flex items-center justify-center border cursor-none border-zinc-500 rounded-full transition-colors font-medium`}
                 >
                   {item.label}
                 </button>
               ))}
             </div>
 
-            <hr className="border-zinc-200 mb-6" />
+            <hr className="border-zinc-500  mb-6" />
 
             {/* Spotify Section */}
             <div className="flex items-center gap-2 mb-4 font-medium text-sm">
@@ -110,7 +110,7 @@ export default function MusicModal() {
               </div>
             </div>
             <Link href="https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M?si=sKMnRq-FQzeezWU8-_srzw" target="_blank">
-            <button className="w-full flex items-center justify-center gap-2 bg-black text-white py-3 rounded-xl font-medium text-sm hover:bg-zinc-800 transition-colors">
+            <button className="w-full flex items-center justify-center gap-2 bg-black text-white py-3 rounded-xl font-medium text-sm hover:bg-zinc-800 cursor-none transition-colors">
               Listen on Spotify <ExternalLink size={14} />
             </button>
             </Link>
