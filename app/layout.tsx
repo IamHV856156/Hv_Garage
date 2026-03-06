@@ -24,7 +24,12 @@ export const metadata: Metadata = {
     url: "https://iamhv856156.github.io/Hv_Garage/",
     title: "Harshit Vashisht - Portfolio",
     description: "Crafting scalable web apps and high-fidelity digital experiences. Explore my projects.",
-    images: [{ url: "https://iamhv856156.github.io/Hv_Garage/preview-image.jpg" }],
+    images: [{
+      url: '/hero.png', 
+      width: 1200,
+      height: 630,
+      alt: 'Harshit Vashisht Portfolio Hero Section',
+    }],
   },
 };
 
