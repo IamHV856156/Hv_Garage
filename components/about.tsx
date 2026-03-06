@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Code2, Fingerprint, Globe2, Sparkles } from "lucide-react";
 import Terminal from "./Terminal";
+import { memo } from "react";
 
 const About = () => {
   return (
@@ -47,7 +48,7 @@ const About = () => {
             <GlassCard className="p-8 border hover:border-emerald-500/30">
               <Code2 className="text-emerald-500/50 mb-4" size={24} />
               <h3 className="text-white font-bold text-xl mb-3 tracking-tight">Core Arsenal</h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 min-h-20 content-start">
                 {['Html','JavaScript','React.js','TypeScript','C','C++','Tailwind','Framer Motion'].map((tech) => (
                   <span key={tech} className="px-3 py-1 bg-white/5 rounded-md text-[15px] hover:bg-emerald-500/50 hover:text-zinc-50  font-mono text-zinc-400 border border-white/5 ">
                     {tech}
@@ -64,19 +65,22 @@ const About = () => {
   );
 };
 
-const GlassCard = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => {
+// 
+const GlassCard = memo(({ children, className = "" }: { children: React.ReactNode, className?: string }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.98 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      whileHover={{ y: -5 }}
-      transition={{ type: "spring", stiffness: 200, damping: 20 }}
-      className={`relative rounded-[2.5rem] border border-white/10 bg-white/1 backdrop-blur-[50px] overflow-hidden ${className}`}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-20px" }}
+      className={`relative rounded-[2.5rem] border border-white/10 bg-white/3 overflow-hidden transition-all duration-300 ease-outhover:bg-white/[0.07] hover:-translate-y-1 hover:shadow-2xl will-change-transform ${className}`}
     >
-      <div className="relative z-10">{children}</div>
-      <div className="absolute bottom-0 left-0 w-full h-[1] bg-linear-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute inset-0 backdrop-blur-md -z-10 pointer-events-none" />
+      
+      <div className="relative z-10 h-full">
+        {children}
+      </div>
     </motion.div>
   );
-};
+});
 
 export default About;
