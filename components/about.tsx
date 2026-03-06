@@ -15,7 +15,7 @@ const About = () => {
               <Fingerprint className="text-blue-500 mb-6" size={40} />
               <h2 className="text-blue-500 font-sans tracking-[0.3em] text-[13px]  mb-2">// about me</h2>
               <h1 className="text-5xl font-black text-zinc-400 tracking-tighter leading-none mb-6">HARSHIT <br /> VASHISHT.</h1>
-                <h3 className="text-[18px] font-mono text-blue-500 hover:text-yellow-500  tracking-tighter leading-none mb-6">Web Dev X FOSS X Code X Design</h3>
+                <h3 className="text-[18px] font-mono text-blue-500 hover:text-yellow-500 tracking-tighter leading-none mb-6">Web Dev X FOSS X Code X Design</h3>
               <p className="text-zinc-400 text-lg font-light leading-relaxed">
                 Full-stack architect crafting <span className="text-white">High-Fidelity</span> digital experiences. 
                 I treat the web as a tactile medium where code meets physics.
