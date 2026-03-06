@@ -13,7 +13,6 @@ import Footer from "@/components/footer";
 import GridBG from "@/components/Effects/background";
 
 export default function Home() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
 
   return (
     <div className="cursor-none relative min-h-screen w-full font-sans">

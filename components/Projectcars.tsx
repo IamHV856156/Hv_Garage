@@ -88,8 +88,8 @@ const ProjectCard = ({ title, github, link, color, iconName, iconSrc,Role }: Pro
         </div>
 
         <div style={{ transform: "translateZ(50px)" }} className="mt-10 relative z-10">
-          <p className="font-mono text-2xl font-black tracking-[0.2em] text-white drop-shadow-2xl">
-            {title.toUpperCase().padEnd(16, " ").substring(0, 16)}
+          <p className="font-mono text-xl font-black tracking-widest text-white drop-shadow-2xl">
+            {title.toUpperCase().padEnd(19, " ").substring(0, 30)}
           </p>
         </div>
 
