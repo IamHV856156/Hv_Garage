@@ -1,6 +1,6 @@
 "use client";
 import { motion, useSpring, useMotionValue, useTransform } from "framer-motion";
-import { useState, useRef } from "react";
+import { useState, useRef, memo } from "react";
 import Magnetic from "./magneticEffect";
 
 const magicHeading = ({ text }: { text: string }) => {
@@ -30,11 +30,11 @@ const magicHeading = ({ text }: { text: string }) => {
   );
 };
 
-const GlassCharacter = ({ char, mouseX, mouseY }: any) => {
+const GlassCharacter = memo(({ char, mouseX, mouseY }: any) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const refactorX = useTransform(mouseX, [0, 1000], [5, -5]);
-  const refactorY = useTransform(mouseY, [0, 500], [5, -5]);
+  const refactorX = useTransform(mouseX, [0, 1200], [8, -8]);
+  const refactorY = useTransform(mouseY, [0, 800], [8, -8]);
 
   return (
     <Magnetic>
@@ -49,14 +49,13 @@ const GlassCharacter = ({ char, mouseX, mouseY }: any) => {
       >
         <motion.span
           style={{ x: refactorX, y: refactorY }}
-          className="absolute inset-0 text-7xl sm:text-9xl  uppercase tracking-tighter text-white/30 backdrop-blur-sm"
+          className="absolute inset-0 text-7xl sm:text-9xl  uppercase tracking-tighter text-white/30 will-change-transform pointer-events-none"
         >
           {char}
         </motion.span>
   
         <span className={`
-          relative block text-7xl sm:text-9xl font-black uppercase tracking-tighter
-          transition-all duration-500
+          relative block text-7xl sm:text-9xl font-black uppercase tracking-tighter transition-all duration-500
           ${isHovered 
             ? "text-zinc-400/15 drop-shadow-[0_0_25px_rgba(255,255,255,0.2)]" 
             : "text-transparent [-webkit-text-stroke:1px_rgba(161, 161, 170, 0.15)]"
@@ -67,6 +66,6 @@ const GlassCharacter = ({ char, mouseX, mouseY }: any) => {
       </motion.div>
     </Magnetic>
   );
-};
+});
 
 export default magicHeading;
