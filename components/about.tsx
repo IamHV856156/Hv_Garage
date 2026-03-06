@@ -8,14 +8,14 @@ const About = () => {
     <section className="relative w-full min-h-screen py-24 px-6 flex flex-col items-center justify-center overflow-hidden">
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         
-        {/*LEFT COLUMN: IDENTITY (The "Profile" Glass) */}
+        {/*LEFT COLUMN */}
         <div className="lg:col-span-4 space-y-6">
           <GlassCard className="h-full flex flex-col justify-between p-10 border hover:border-blue-500/30">
             <div>
               <Fingerprint className="text-blue-500 mb-6" size={40} />
               <h2 className="text-blue-500 font-sans tracking-[0.3em] text-[13px]  mb-2">// about me</h2>
               <h1 className="text-5xl font-black text-zinc-400 tracking-tighter leading-none mb-6">HARSHIT <br /> VASHISHT.</h1>
-                <h3 className="text-[18px] font-mono text-blue-500 hover:text-yellow-500 tracking-tighter leading-none mb-6">Web Dev X FOSS X Code X Design</h3>
+                <h3 className="text-[18px] font-mono text-blue-500 hover:text-yellow-500  tracking-tighter leading-none mb-6">Web Dev X FOSS X Code X Design</h3>
               <p className="text-zinc-400 text-lg font-light leading-relaxed">
                 Full-stack architect crafting <span className="text-white">High-Fidelity</span> digital experiences. 
                 I treat the web as a tactile medium where code meets physics.
@@ -27,12 +27,12 @@ const About = () => {
                 <Globe2 size={16} className="text-zinc-600" />
                 <span className="text-xs text-zinc-500 font-mono tracking-widest uppercase">Based in Delhi,India</span>
               </div>
-              <div className="h-2 w-2 rounded-full bg-emerald-500 hover:bg-yellow-500 animate-ping" />
+              <div className="h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
             </div>
           </GlassCard>
         </div>
 
-        {/* RIGHT COLUMN: TERMINAL & SPECS */}
+        {/* RIGHT COLUMN*/}
         <div className="lg:col-span-8 flex flex-col gap-8">
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -69,7 +69,7 @@ const GlassCard = ({ children, className = "" }: { children: React.ReactNode, cl
     <motion.div
       initial={{ opacity: 0, scale: 0.98 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      whileHover={{ y: -5 }}
+      // whileHover={{ y: -5 }}
       transition={{ type: "spring", stiffness: 200, damping: 20 }}
       className={`relative rounded-[2.5rem] border border-white/10 bg-white/1 backdrop-blur-[50px] overflow-hidden ${className}`}
     >
