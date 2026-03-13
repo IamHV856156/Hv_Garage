@@ -154,7 +154,6 @@ const Terminal = () => {
               <form onSubmit={handleCommand} className="flex items-center gap-2 pt-2">
                 <DollarSign size={14} className="italic text-blue-500" />
                 <input 
-                  autoFocus 
                   className={`flex-1 bg-transparent border-none outline-none ${isDarkMode ? "text-white" : "text-black"}`} 
                   value={input} 
                   onChange={(e) => setInput(e.target.value)} 
